@@ -16,7 +16,7 @@ class Parser extends Base {
     }
 
 
-    public function getData($param) {
+    protected function getData($param) {
 
         if(substr($param,0,4) != "http") {
             return $param;
