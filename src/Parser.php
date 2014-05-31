@@ -22,23 +22,7 @@ class Parser extends Base {
             return $param;
         }
 
-        $curl = curl_init();
-        curl_setopt_array($curl,[
-            CURLOPT_URL             =>  $param,
-            CURLOPT_RETURNTRANSFER  =>  true,
-            CURLOPT_FOLLOWLOCATION  =>  true,
-        ]);
-
-        $result = curl_exec($curl);
-        $error = curl_error($curl);
-
-        curl_close($curl);
-
-        if($result === false) {
-            throw new \Exception($error);
-        }
-
-        return $result;
+        return (new \GuzzleHttp\Client())->get($param)->getBody();
 
     }
 
