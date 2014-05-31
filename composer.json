@@ -1,0 +1,23 @@
+{
+    "name": "duncan3dc/domparser",
+    "type": "library",
+    "description": "Wrappers for the standard DomDocument class to provide extra functionality for html/xml parsing",
+    "keywords": ["domdocument","html","xml","parser"],
+    "homepage": "https://github.com/duncan3dc/domparser",
+    "license": "Apache-2.0",
+    "authors": [{
+        "name": "Craig Duncan",
+        "email": "git@duncanc.co.uk",
+        "homepage": "https://github.com/duncan3dc",
+        "role": "Developer"
+    }],
+    "require": {
+        "ext-curl": "*",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+        "psr-4": {"duncan3dc\\DomParser\\": "src/"}
+    }
+}
