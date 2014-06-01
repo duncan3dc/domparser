@@ -34,4 +34,13 @@ class Element extends Base {
     }
 
 
+    public function getAttributes() {
+        $attributes = array();
+        foreach($this->dom->attributes as $key => $val) {
+            $attributes[$key] = $val;
+        }
+        return $attributes;
+    }
+
+
 }
