@@ -1,6 +1,7 @@
 <?php
 
 namespace duncan3dc\DomParser;
+use \duncan3dc\Helpers\Helper;
 
 class Parser extends Base {
 
@@ -22,7 +23,7 @@ class Parser extends Base {
             return $param;
         }
 
-        return (new \GuzzleHttp\Client())->get($param)->getBody();
+        return Helper::curl($param);
 
     }
 
