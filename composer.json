@@ -2,7 +2,7 @@
     "name": "duncan3dc/domparser",
     "type": "library",
     "description": "Wrappers for the standard DOMDocument class to provide extra functionality for html/xml parsing",
-    "keywords": ["domdocument","html","xml","parser"],
+    "keywords": ["domdocument", "html", "xml", "parser", "parsing", "writer", "generation"],
     "homepage": "https://github.com/duncan3dc/domparser",
     "license": "Apache-2.0",
     "authors": [{
