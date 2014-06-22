@@ -22,15 +22,15 @@ Public Properties
 
 Public Methods
 --------------
-* getTags(string $tagName) - Similar to DOMDocument::getElementsByTagName() except a standard array is returned
-_Alias: getElementsByTagName()
-* getTag(string $tagName) - Similar to getTags() but will return the first element matched, instead of an array of elements
-_Alias: getElementByTagName()
-* getElementsByClassName(mixed $className) - Matches elements that have a class attribute that matches the string parameter.
+* getTags(string $tagName): array - Similar to DOMDocument::getElementsByTagName() except a standard array is returned.  
+Alias: getElementsByTagName()
+* getTag(string $tagName): Element - Similar to getTags() but will return the first element matched, instead of an array of elements.  
+Alias: getElementByTagName()
+* getElementsByClassName(mixed $className): array - Matches elements that have a class attribute that matches the string parameter.  
 If you want to find elements with multiple classes, pass the $className as an array of classes, and only elements that have all classes will be returned
-* getElementByClassName(mixed $className) - Similar to getElementsByClassName() except this will return the first element matched
-* output() - Returns the xml/html repesented by the receiver, formatted using DOMDocument::formatOutput
-* xpath(string $path) - Returns an array of elements matching the $path
+* getElementByClassName(mixed $className): Element - Similar to getElementsByClassName() except this will return the first element matched
+* output(): string - Returns the xml/html repesented by the receiver, formatted using DOMDocument::formatOutput
+* xpath(string $path): array - Returns an array of elements matching the $path
 
 
 Dom Elements
@@ -41,10 +41,10 @@ All of the methods that return elements return them as instances of the Element 
 Examples
 --------
 
-The parser classes use a name space of duncan3dc\DomParser
+The parser classes use a namespace of duncan3dc\DomParser
 ```
-use duncan3dc\DomParser\HtmlParser;
-use duncan3dc\DomParser\XmlParser;
+use \duncan3dc\DomParser\HtmlParser;
+use \duncan3dc\DomParser\XmlParser;
 ```
 
 -------------------
