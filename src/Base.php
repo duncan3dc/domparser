@@ -61,6 +61,41 @@ class Base {
     }
 
 
+    public function getTagsNS($ns,$tagName) {
+
+        $elements = [];
+
+        $list = $this->dom->getElementsByTagNameNS($ns,$tagName);
+        foreach($list as $element) {
+            $elements[] = new Element($element,$this->mode);
+        }
+
+        return $elements;
+    }
+
+
+    public function getElementsByTagNameNS($ns,$tagName) {
+        return $this->getTagsNS($ns,$tagName);
+    }
+
+
+    public function getTagNS($ns,$tagName,$key=0) {
+
+        $elements = $this->dom->getElementsByTagNameNS($ns,$tagName);
+
+        if(!$element = $elements->item($key)) {
+            return false;
+        }
+
+        return new Element($element,$this->mode);
+    }
+
+
+    public function getElementByTagNameNS($ns,$tagName,$key=0) {
+        return $this->getTagNS($ns,$tagName,$key);
+    }
+
+
     public function getElementsByClassName($className,$limit=0) {
 
         if(!is_array($className)) {
