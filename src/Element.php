@@ -29,13 +29,29 @@ class Element extends Base {
     }
 
 
+    public function nodeValue($value) {
+
+        $this->dom->nodeValue = "";
+
+        $node = $this->dom->ownerDocument->createTextNode($value);
+
+        $this->dom->appendChild($node);
+
+    }
+
+
     public function getAttribute($name) {
         return $this->dom->getAttribute($name);
     }
 
 
+    public function setAttribute($name,$value) {
+        return $this->dom->setAttribute($name,$value);
+    }
+
+
     public function getAttributes() {
-        $attributes = array();
+        $attributes = [];
         foreach($this->dom->attributes as $attr) {
             $attributes[$attr->name] = $attr->value;
         }
