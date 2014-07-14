@@ -42,14 +42,14 @@ Examples
 --------
 
 The parser classes use a namespace of duncan3dc\DomParser
-```
-use \duncan3dc\DomParser\HtmlParser;
-use \duncan3dc\DomParser\XmlParser;
+```php
+use duncan3dc\DomParser\HtmlParser;
+use duncan3dc\DomParser\XmlParser;
 ```
 
 -------------------
 
-```
+```php
 $parser = new HtmlParser("http://example.com");
 
 echo "Page Title: " . $parser->getTag("title")->nodeValue . "\n";

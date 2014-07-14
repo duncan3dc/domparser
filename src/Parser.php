@@ -1,7 +1,7 @@
 <?php
 
 namespace duncan3dc\DomParser;
-use \duncan3dc\Helpers\Helper;
+use duncan3dc\Helpers\Helper;
 
 class Parser extends Base {
 
