@@ -2,13 +2,13 @@
 
 namespace duncan3dc\DomParser;
 
-class HtmlParser extends Parser {
-
+class HtmlParser extends Parser
+{
     public  $html;
 
 
-    public function __construct($param) {
-
+    public function __construct($param)
+    {
         parent::__construct("html");
 
         $this->html = $this->getData($param);
@@ -17,8 +17,5 @@ class HtmlParser extends Parser {
         $this->dom->loadHTML($this->html);
         $this->errors = libxml_get_errors();
         libxml_clear_errors();
-
     }
-
-
 }
