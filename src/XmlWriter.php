@@ -70,13 +70,13 @@ class XmlWriter
     public static function createXml($structure)
     {
         $writer = new static($structure);
-        return $writer->toString();
+        return trim($writer->toString());
     }
 
 
     public static function formatXml($structure)
     {
         $writer = new static($structure);
-        return $writer->toString(true);
+        return trim($writer->toString(true));
     }
 }
