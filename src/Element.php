@@ -2,15 +2,8 @@
 
 namespace duncan3dc\DomParser;
 
-class Element extends Base
+trait Element
 {
-
-    public function __construct($dom, $mode)
-    {
-        parent::__construct($dom, $mode);
-    }
-
-
     public function __get($key)
     {
         $value = $this->dom->$key;

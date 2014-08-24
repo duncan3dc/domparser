@@ -1,27 +1,28 @@
 <?php
 
 namespace duncan3dc\DomParser;
+
 use duncan3dc\Helpers\Helper;
 
-class Parser extends Base
+trait Parser
 {
     public $errors = [];
 
-
-    public function __construct($mode)
-    {
-        parent::__construct(new \DomDocument(), $mode);
-
-        $this->dom->preserveWhiteSpace = false;
-    }
-
-
     protected function getData($param)
     {
-        if (substr($param, 0, 4) != "http") {
-            return $param;
+        if (substr($param, 0, 4) == "http") {
+            $data = Helper::curl($param);
+        } else {
+            $data = $param;
         }
 
-        return Helper::curl($param);
+        $method = "load" . strtoupper($this->mode);
+
+        libxml_use_internal_errors(true);
+        $this->dom->$method($data);
+        $this->errors = libxml_get_errors();
+        libxml_clear_errors();
+
+        return $data;
     }
 }
