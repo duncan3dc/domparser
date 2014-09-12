@@ -68,6 +68,12 @@ HTML
     }
 
 
+    public function testParentNode()
+    {
+        $this->assertSame($this->parser->getTag("div")->parentNode->nodeName, "body");
+    }
+
+
     public function testRemoteDownload()
     {
         $parser = new HtmlParser("http://example.com");

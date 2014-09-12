@@ -72,6 +72,12 @@ XML
     }
 
 
+    public function testParentNode()
+    {
+        $this->assertSame($this->parser->getTag("title")->parentNode->nodeName, "header");
+    }
+
+
     public function testOutput()
     {
         $this->assertSame($this->parser->getTag("child")->output(), "<child>Child1</child>");

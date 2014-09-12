@@ -11,7 +11,7 @@ trait Element
         switch ($key) {
 
             case "parentNode":
-                return new Element($value, $this->mode);
+                return $this->newElement($value);
 
             case "nodeValue":
                 return trim($value);
