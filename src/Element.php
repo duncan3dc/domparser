@@ -4,6 +4,12 @@ namespace duncan3dc\DomParser;
 
 trait Element
 {
+    public function __toString()
+    {
+        return $this->nodeValue;
+    }
+
+
     public function __get($key)
     {
         $value = $this->dom->$key;
