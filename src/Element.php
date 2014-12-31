@@ -19,6 +19,13 @@ trait Element
             case "parentNode":
                 return $this->newElement($value);
 
+            case "childNodes":
+                $elements = [];
+                foreach ($value as $element) {
+                    $elements[] = $this->newElement($element);
+                }
+                return $elements;
+
             case "nodeValue":
                 return trim($value);
         }
