@@ -70,6 +70,6 @@ class HtmlBase extends Base
     {
         $elements = $this->getElementsByClassName($className, $key + 1);
 
-        return $elements[$key];
+        return isset($elements[$key]) ? $elements[$key] : null;
     }
 }
