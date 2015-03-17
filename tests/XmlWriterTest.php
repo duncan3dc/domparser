@@ -4,9 +4,9 @@ namespace duncan3dc\DomParser;
 
 class XmlWriterTest extends \PHPUnit_Framework_TestCase
 {
-    private function checkXml($xml, $check)
+    protected function checkXml($xml, $check)
     {
-        $this->assertSame($xml, "<?xml version=\"1.0\"?>\n" . $check);
+        $this->assertSame("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" . $check, $xml);
     }
 
     public function testCreateXmlSimple()
@@ -115,5 +115,45 @@ XML
 <tag attr="ok" test="one"><tag2a>ok</tag2a><tag2b>ok</tag2b></tag>
 XML
 );
+    }
+
+
+    public function testGetDomDocument()
+    {
+        $xml = new XmlWriter([]);
+        $this->assertInstanceOf("DomDocument", $xml->getDomDocument());
+    }
+
+
+    public function testFormat()
+    {
+        $xml = XmlWriter::formatXml([
+            "parent" =>  [
+                "child1"    =>  "ok",
+                "child2"    =>  "ok",
+            ],
+        ]);
+
+        $this->checkXml($xml, <<<XML
+<parent>
+  <child1>ok</child1>
+  <child2>ok</child2>
+</parent>
+XML
+);
+    }
+
+
+    public function testOverrideEncoding1()
+    {
+        $xml = new XmlWriter([], "iso-8859-1");
+
+        $this->assertSame("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n", $xml->toString());
+    }
+    public function testOverrideEncoding2()
+    {
+        $xml = XmlWriter::createXml([], "iso-8859-1");
+
+        $this->assertSame("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>", $xml);
     }
 }
