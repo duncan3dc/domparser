@@ -17,10 +17,14 @@ class XmlWriter
      * Create an internal dom instance from the passed array structure.
      *
      * @param array $structure The array representation of the xml structure
+     * @param string $encoding The encoding to declare in the <?xml tag
      */
-    public function __construct(array $structure)
+    public function __construct(array $structure, $encoding = null)
     {
-        $this->dom = new \DomDocument();
+        if ($encoding === null) {
+            $encoding = "utf-8";
+        }
+        $this->dom = new \DomDocument("1.0", $encoding);
 
         foreach ($structure as $key => $val) {
             $this->addElement($key, $val, $this->dom);
@@ -111,12 +115,13 @@ class XmlWriter
      * Convert the passed array structure to an xml string.
      *
      * @param array $structure The array representation of the xml structure
+     * @param string $encoding The encoding to declare in the <?xml tag
      *
      * @return string
      */
-    public static function createXml($structure)
+    public static function createXml($structure, $encoding = null)
     {
-        $writer = new static($structure);
+        $writer = new static($structure, $encoding);
         return trim($writer->toString());
     }
 

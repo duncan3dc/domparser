@@ -41,6 +41,8 @@ trait Element
         $node = $this->dom->ownerDocument->createTextNode($value);
 
         $this->dom->appendChild($node);
+
+        return $this;
     }
 
 
@@ -52,7 +54,9 @@ trait Element
 
     public function setAttribute($name, $value)
     {
-        return $this->dom->setAttribute($name, $value);
+        $this->dom->setAttribute($name, $value);
+
+        return $this;
     }
 
 
