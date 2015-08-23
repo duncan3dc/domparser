@@ -17,6 +17,9 @@
         "ext-libxml": "*",
         "php": ">=5.5.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8"
+    },
     "autoload": {
         "psr-4": {
             "duncan3dc\\DomParser\\": "src/",
