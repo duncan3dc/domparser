@@ -102,6 +102,19 @@ XML
     }
 
 
+    public function testHasAttribute()
+    {
+        $this->assertFalse($this->parser->getTag("name")->hasAttribute("nope"));
+        $this->assertTrue($this->parser->getTag("name")->hasAttribute("type"));
+    }
+
+
+    public function testGetAttribute()
+    {
+        $this->assertSame("nametype", $this->parser->getTag("name")->getAttribute("type"));
+    }
+
+
     public function testSetAttribute()
     {
         $this->assertSame("new-attribute", $this->parser->getTag("title")->setAttribute("test", "new-attribute")->getAttribute("test"));

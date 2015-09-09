@@ -46,6 +46,12 @@ trait Element
     }
 
 
+    public function hasAttribute($name)
+    {
+        return $this->dom->hasAttribute($name);
+    }
+
+
     public function getAttribute($name)
     {
         return $this->dom->getAttribute($name);
