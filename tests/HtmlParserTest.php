@@ -122,4 +122,11 @@ HTML
         }
         $this->assertSame("text/html; charset=utf-8", $contentType);
     }
+
+
+    public function testCannotDownload()
+    {
+        $this->setExpectedException(\Exception::class);
+        $parser = new HtmlParser("http://nope.noway");
+    }
 }
