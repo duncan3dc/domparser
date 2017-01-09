@@ -19,8 +19,31 @@ class HtmlParserTest extends \PHPUnit_Framework_TestCase
         <div class='data1 one' data-stuff='ok'>Data1.1</div>
         <div class='data1 two'>Data1.2</div>
         <div class='data1 three' id='data1.3'>Data1.3</div>
-    </detail>
-</document>
+        <form id='form1'>
+            <input name='test' value='ok'>
+
+            <input name='bag[]' value='one'>
+            <formset>
+                <input name='bag[]' value='two'>
+            </formset>
+            <input name='data[item][level]' value='nested'>
+
+            <input name='filtered' type='checkbox' value='yep' checked>
+            <input name='validated' type='checkbox' value='yep'>
+
+            <select name='option1'>
+                <option value='value1'>Value 1</option>
+                <option value='value2'>Value 2</option>
+            </select>
+
+            <select name='option2'>
+                <option value='value1'>Value 1</option>
+                <option value='value2' selected>Value 2</option>
+            </select>
+
+            <textarea name='comments'>blah blah blah</textarea>
+    </body>
+</html>
 HTML
 );
     }
@@ -128,5 +151,21 @@ HTML
     {
         $this->setExpectedException(\Exception::class);
         $parser = new HtmlParser("http://nope.noway");
+    }
+
+
+
+    public function testParseForm()
+    {
+        $data = $this->parser->getElementById("form1")->parseForm();
+        $this->assertSame([
+            "test"      =>  "ok",
+            "bag"       =>  ["one", "two"],
+            "data"      =>  ["item" => ["level" => "nested"]],
+            "filtered"  =>  "yep",
+            "option1"   =>  "value1",
+            "option2"   =>  "value2",
+            "comments"  =>  "blah blah blah",
+        ], $data);
     }
 }
