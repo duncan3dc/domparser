@@ -21,8 +21,10 @@ trait Element
 
             case "childNodes":
                 $elements = [];
-                foreach ($value as $element) {
-                    $elements[] = $this->newElement($element);
+                if ($value !== null) {
+                    foreach ($value as $element) {
+                        $elements[] = $this->newElement($element);
+                    }
                 }
                 return $elements;
 
