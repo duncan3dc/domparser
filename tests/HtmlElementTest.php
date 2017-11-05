@@ -37,4 +37,14 @@ class HtmlElementTest extends \PHPUnit_Framework_TestCase
         $this->dom->shouldReceive("getAttribute")->with("class")->andReturn("one two");
         $this->assertTrue($this->element->hasClass("one"));
     }
+
+
+    public function testRemoveChild1()
+    {
+        $element = clone $this->element;
+        $this->dom->shouldReceive("removeChild")->with($element->dom);
+
+        $result = $this->element->removeChild($element);
+        $this->assertSame($this->element, $result);
+    }
 }

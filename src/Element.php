@@ -76,4 +76,12 @@ trait Element
         }
         return $attributes;
     }
+
+
+    public function removeChild(Base $element)
+    {
+        $this->dom->removeChild($element->dom);
+
+        return $this;
+    }
 }
