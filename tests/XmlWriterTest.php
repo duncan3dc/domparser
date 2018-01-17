@@ -3,10 +3,11 @@
 namespace duncan3dc\DomParserTests;
 
 use duncan3dc\DomParser\XmlWriter;
+use PHPUnit\Framework\TestCase;
 
-class XmlWriterTest extends \PHPUnit_Framework_TestCase
+class XmlWriterTest extends TestCase
 {
-    protected function checkXml($xml, $check)
+    private function checkXml($xml, $check)
     {
         $this->assertSame("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" . $check, $xml);
     }

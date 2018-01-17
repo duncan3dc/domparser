@@ -3,10 +3,11 @@
 namespace duncan3dc\DomParserTests;
 
 use duncan3dc\DomParser\XmlParser;
+use PHPUnit\Framework\TestCase;
 
-class XmlParserTest extends \PHPUnit_Framework_TestCase
+class XmlParserTest extends TestCase
 {
-    protected $parser;
+    private $parser;
 
     public function setUp()
     {

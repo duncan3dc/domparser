@@ -3,12 +3,13 @@
 namespace duncan3dc\DomParserTests;
 
 use duncan3dc\DomParser\HtmlParser;
+use PHPUnit\Framework\TestCase;
 
-class HtmlParserTest extends \PHPUnit_Framework_TestCase
+class HtmlParserTest extends TestCase
 {
-    protected $parser;
+    private $parser;
 
-    public function __construct()
+    public function setUp()
     {
         $this->parser = new HtmlParser(<<<HTML
 <html>

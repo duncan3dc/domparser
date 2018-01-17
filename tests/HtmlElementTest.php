@@ -4,11 +4,12 @@ namespace duncan3dc\DomParserTests;
 
 use duncan3dc\DomParser\HtmlElement;
 use Mockery;
+use PHPUnit\Framework\TestCase;
 
-class HtmlElementTest extends \PHPUnit_Framework_TestCase
+class HtmlElementTest extends TestCase
 {
-    protected $dom;
-    protected $element;
+    private $dom;
+    private $element;
 
     public function setUp()
     {
