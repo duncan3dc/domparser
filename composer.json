@@ -12,7 +12,6 @@
         "role": "Developer"
     }],
     "require": {
-        "ext-curl": "*",
         "ext-dom": "*",
         "ext-libxml": "*",
         "php": "^7.0"

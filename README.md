@@ -12,8 +12,7 @@ Wrappers for the PHP DOMDocument class to provide extra functionality for html/x
 Constructor Arguments
 ---------------------
 There are 2 constructors available, one for the HtmlParser class and one for the XmlParser class, they both work in the same way.
-* Only 1 parameter is available, which should be passed as a string, and contain either a url, or the content to parse (xml/html)
-* If the string begins with the text http then it will be treated as a url (this will work for https too).
+* Only 1 parameter is available, which should be passed as a string, and contain the content to parse (xml/html)
 * Warnings are captured during the loading of the content using libxml_use_internal_errors() and libxml_get_errors(), these are available from the errors property after the class has been initiated
 
 
@@ -55,7 +54,7 @@ use duncan3dc\DomParser\XmlParser;
 -------------------
 
 ```php
-$parser = new HtmlParser("http://example.com");
+$parser = new HtmlParser(file_get_contents("http://example.com"));
 
 echo "Page Title: " . $parser->getTag("title")->nodeValue . "\n";
 

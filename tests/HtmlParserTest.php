@@ -131,31 +131,6 @@ HTML
     }
 
 
-    public function testRemoteDownload()
-    {
-        $parser = new HtmlParser("http://example.com");
-
-        $this->assertSame($parser->getTag("title")->nodeValue, "Example Domain");
-
-        $contentType = null;
-        $meta = $parser->getTags("meta");
-        foreach ($meta as $element) {
-            if ($element->getAttribute("http-equiv") == "Content-type") {
-                $contentType = $element->getAttribute("content");
-            }
-        }
-        $this->assertSame("text/html; charset=utf-8", $contentType);
-    }
-
-
-    public function testCannotDownload()
-    {
-        $this->setExpectedException(\Exception::class);
-        $parser = new HtmlParser("http://nope.noway");
-    }
-
-
-
     public function testParseForm()
     {
         $data = $this->parser->getElementById("form1")->parseForm();
