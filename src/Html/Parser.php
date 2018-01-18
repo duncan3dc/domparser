@@ -50,10 +50,10 @@ class Parser extends AbstractBase implements ParserInterface
     }
 
 
-    public function getElementById($id)
+    public function getElementById(string $id): ?ElementInterface
     {
         if (!$element = $this->dom->getElementById($id)) {
-            return false;
+            return null;
         }
 
         return $this->newElement($element);

@@ -7,7 +7,7 @@ use duncan3dc\Dom\ElementTrait;
 /**
  * Represents an xml element.
  */
-class Element extends AbstractBase
+class Element extends AbstractBase implements ElementInterface
 {
     use ElementTrait;
 

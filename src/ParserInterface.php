@@ -2,7 +2,7 @@
 
 namespace duncan3dc\Dom;
 
-interface ParserInterface
+interface ParserInterface extends DomInterface
 {
 
 
@@ -12,4 +12,14 @@ interface ParserInterface
      * @return \LibXMLError[]
      */
     public function getErrors(): array;
+
+
+    /**
+     * Get elements using an xpath selector.
+     *
+     * @param string $path The xpath selector
+     *
+     * @return ElementInterface[]
+     */
+    public function xpath(string $path): array;
 }

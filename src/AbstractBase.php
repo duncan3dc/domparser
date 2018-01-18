@@ -26,11 +26,11 @@ abstract class AbstractBase
     }
 
 
-    public function getTags($tagName)
+    public function getTags(string $name): array
     {
         $elements = [];
 
-        $list = $this->dom->getElementsByTagName($tagName);
+        $list = $this->dom->getElementsByTagName($name);
         foreach ($list as $element) {
             $elements[] = $this->newElement($element);
         }
@@ -39,26 +39,26 @@ abstract class AbstractBase
     }
 
 
-    public function getElementsByTagName($tagName)
+    public function getElementsByTagName(string $name): array
     {
-        return $this->getTags($tagName);
+        return $this->getTags($name);
     }
 
 
-    public function getTag($tagName, $key = 0)
+    public function getTag(string $name, int $key = 0): ?ElementInterface
     {
-        $elements = $this->dom->getElementsByTagName($tagName);
+        $elements = $this->dom->getElementsByTagName($name);
 
         if (!$element = $elements->item($key)) {
-            return false;
+            return null;
         }
 
         return $this->newElement($element);
     }
 
 
-    public function getElementByTagName($tagName, $key = 0)
+    public function getElementByTagName(string $name, int $key = 0): ?ElementInterface
     {
-        return $this->getTag($tagName, $key);
+        return $this->getTag($name, $key);
     }
 }

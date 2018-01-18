@@ -17,31 +17,51 @@ trait ElementTrait
 
     public function __get($key)
     {
-        $value = $this->dom->$key;
-
-        switch ($key) {
-
-            case "parentNode":
-                return $this->newElement($value);
-
-            case "childNodes":
-                $elements = [];
-                if ($value !== null) {
-                    foreach ($value as $element) {
-                        $elements[] = $this->newElement($element);
-                    }
-                }
-                return $elements;
-
-            case "nodeValue":
-                return trim($value);
+        if ($key === "parentNode") {
+            return $this->getParent();
         }
 
-        return $value;
+        if ($key === "childNodes") {
+            return $this->getChildren();
+        }
+
+        if ($key === "nodeValue") {
+            return $this->getValue();
+        }
+
+        return $this->dom->$key;
     }
 
 
-    public function nodeValue($value)
+    public function getParent(): ElementInterface
+    {
+        $value = $this->dom->parentNode;
+
+        return $this->newElement($value);
+    }
+
+
+    public function getChildren(): array
+    {
+        $elements = [];
+
+        if ($this->dom->hasChildNodes()) {
+            foreach ($this->dom->childNodes as $node) {
+                $elements[] = $this->newElement($node);
+            }
+        }
+
+        return $elements;
+    }
+
+
+    public function getValue(): string
+    {
+        return trim($this->dom->nodeValue);
+    }
+
+
+    public function nodeValue(string $value): ElementInterface
     {
         $this->dom->nodeValue = "";
 
@@ -53,19 +73,19 @@ trait ElementTrait
     }
 
 
-    public function hasAttribute($name)
+    public function hasAttribute(string $name): bool
     {
         return $this->dom->hasAttribute($name);
     }
 
 
-    public function getAttribute($name)
+    public function getAttribute(string $name): string
     {
         return $this->dom->getAttribute($name);
     }
 
 
-    public function setAttribute($name, $value)
+    public function setAttribute(string $name, string $value): ElementInterface
     {
         $this->dom->setAttribute($name, $value);
 
@@ -73,7 +93,7 @@ trait ElementTrait
     }
 
 
-    public function getAttributes()
+    public function getAttributes(): array
     {
         $attributes = [];
         foreach ($this->dom->attributes as $attr) {
@@ -83,9 +103,9 @@ trait ElementTrait
     }
 
 
-    public function removeChild(AbstractBase $element)
+    public function removeChild(ElementInterface $element): ElementInterface
     {
-        $this->dom->removeChild($element->dom);
+        $this->dom->removeChild($element->getDomNode());
 
         return $this;
     }

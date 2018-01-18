@@ -81,7 +81,7 @@ HTML
     }
     public function testGetElementById2(): void
     {
-        $this->assertFalse($this->parser->getElementById("data1.4"));
+        $this->assertNull($this->parser->getElementById("data1.4"));
     }
 
 
@@ -115,7 +115,7 @@ HTML
     }
     public function testGetTag3(): void
     {
-        $this->assertFalse($this->parser->getElementByTagName("no-such-tag"));
+        $this->assertNull($this->parser->getElementByTagName("no-such-tag"));
     }
 
 

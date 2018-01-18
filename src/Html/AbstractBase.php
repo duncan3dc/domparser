@@ -15,10 +15,10 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
-    public function getElementsByClassName($className, $limit = 0)
+    public function getElementsByClassName($name, int $limit = 0): array
     {
-        if (!is_array($className)) {
-            $className = [$className];
+        if (!is_array($name)) {
+            $name = [$name];
         }
 
         $return = [];
@@ -35,7 +35,7 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
 
             $classes = explode(" ", $check->nodeValue);
             $found = true;
-            foreach ($className as $val) {
+            foreach ($name as $val) {
                 if (!in_array($val, $classes)) {
                     $found = false;
                     break;
@@ -55,15 +55,15 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
-    public function getElementByClassName($className, $key = 0)
+    public function getElementByClassName($name, int $key = 0): ?ElementInterface
     {
-        $elements = $this->getElementsByClassName($className, $key + 1);
+        $elements = $this->getElementsByClassName($name, $key + 1);
 
         return isset($elements[$key]) ? $elements[$key] : null;
     }
 
 
-    public function parseForm()
+    public function parseForm(): array
     {
         $url = $this->generateUrlFromFormElements();
 
@@ -73,7 +73,7 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
-    private function generateUrlFromFormElements()
+    private function generateUrlFromFormElements(): string
     {
         if (!is_array($this->childNodes)) {
             return "";

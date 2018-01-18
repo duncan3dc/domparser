@@ -8,13 +8,9 @@ namespace duncan3dc\Dom;
 trait ParserTrait
 {
     /**
-     * Get elements using an xpath selector.
-     *
-     * @param string $path The xpath selector
-     *
-     * @return Element[]
+     * @inheritdoc
      */
-    public function xpath($path)
+    public function xpath(string $path): array
     {
         $xpath = new \DOMXPath($this->dom);
 

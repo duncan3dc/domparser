@@ -6,17 +6,17 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
 
 
-    protected function newElement($element)
+    protected function newElement($element): ElementInterface
     {
         return new Element($element);
     }
 
 
-    public function getTagsNS($ns, $tagName)
+    public function getTagsNS(string $ns, string $name): array
     {
         $elements = [];
 
-        $list = $this->dom->getElementsByTagNameNS($ns, $tagName);
+        $list = $this->dom->getElementsByTagNameNS($ns, $name);
         foreach ($list as $element) {
             $elements[] = $this->newElement($element);
         }
@@ -25,27 +25,27 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
-    public function getElementsByTagNameNS($ns, $tagName)
+    public function getElementsByTagNameNS(string $ns, string $name): array
     {
-        return $this->getTagsNS($ns, $tagName);
+        return $this->getTagsNS($ns, $name);
     }
 
 
-    public function getTagNS($ns, $tagName, $key = 0)
+    public function getTagNS(string $ns, string $name, int $key = 0): ?ElementInterface
     {
-        $elements = $this->dom->getElementsByTagNameNS($ns, $tagName);
+        $elements = $this->dom->getElementsByTagNameNS($ns, $name);
 
         if (!$element = $elements->item($key)) {
-            return false;
+            return null;
         }
 
         return $this->newElement($element);
     }
 
 
-    public function getElementByTagNameNS($ns, $tagName, $key = 0)
+    public function getElementByTagNameNS(string $ns, string $name, int $key = 0): ?ElementInterface
     {
-        return $this->getTagNS($ns, $tagName, $key);
+        return $this->getTagNS($ns, $name, $key);
     }
 
 

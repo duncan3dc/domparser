@@ -111,7 +111,7 @@ XML
     }
     public function testGetTagNS3(): void
     {
-        $this->assertFalse($this->parser->getElementByTagNameNS("http://www.w3.org/1999/XSL/Transform", "no-such-element"));
+        $this->assertNull($this->parser->getElementByTagNameNS("http://www.w3.org/1999/XSL/Transform", "no-such-element"));
     }
 
 
