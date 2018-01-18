@@ -22,7 +22,7 @@ class HtmlParser extends HtmlBase
      */
     public function __construct($param)
     {
-        parent::__construct(new \DomDocument());
+        parent::__construct(new \DOMDocument);
 
         $this->dom->preserveWhiteSpace = false;
 

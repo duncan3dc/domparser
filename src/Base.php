@@ -69,7 +69,7 @@ abstract class Base
 
     public function xpath($path)
     {
-        $xpath = new \DomXPath($this->dom);
+        $xpath = new \DOMXPath($this->dom);
 
         $list = $xpath->query($path);
 

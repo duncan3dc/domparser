@@ -124,7 +124,7 @@ XML
     public function testGetDomDocument()
     {
         $xml = new XmlWriter([]);
-        $this->assertInstanceOf("DomDocument", $xml->getDomDocument());
+        $this->assertInstanceOf("DOMDocument", $xml->getDomDocument());
     }
 
 
