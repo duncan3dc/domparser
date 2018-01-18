@@ -1,11 +1,11 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\Dom\Html;
 
 /**
  * @property array $childNodes
  */
-class HtmlBase extends Base
+abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
     public function __construct($dom)
     {
@@ -15,7 +15,7 @@ class HtmlBase extends Base
 
     protected function newElement($element)
     {
-        return new HtmlElement($element);
+        return new Element($element);
     }
 
 

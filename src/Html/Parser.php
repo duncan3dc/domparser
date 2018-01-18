@@ -1,13 +1,15 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\Dom\Html;
+
+use duncan3dc\Dom\ParserTrait;
 
 /**
  * Parse html.
  */
-class HtmlParser extends HtmlBase
+class Parser extends AbstractBase
 {
-    use Parser;
+    use ParserTrait;
 
     /**
      * @var string The html string we are parsing.

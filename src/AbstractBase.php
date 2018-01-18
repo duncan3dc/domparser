@@ -2,7 +2,7 @@
 
 namespace duncan3dc\Dom;
 
-abstract class Base
+abstract class AbstractBase
 {
     public $dom;
     public $mode;

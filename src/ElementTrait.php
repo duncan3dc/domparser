@@ -7,7 +7,7 @@ namespace duncan3dc\Dom;
  * @property string $nodeValue
  * @property self $parentNode
  */
-trait Element
+trait ElementTrait
 {
     public function __toString()
     {
@@ -83,7 +83,7 @@ trait Element
     }
 
 
-    public function removeChild(Base $element)
+    public function removeChild(AbstractBase $element)
     {
         $this->dom->removeChild($element->dom);
 

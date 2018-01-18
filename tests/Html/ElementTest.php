@@ -1,12 +1,12 @@
 <?php
 
-namespace duncan3dc\DomTests;
+namespace duncan3dc\DomTests\Html;
 
-use duncan3dc\Dom\HtmlElement;
+use duncan3dc\Dom\Html\Element;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
-class HtmlElementTest extends TestCase
+class ElementTest extends TestCase
 {
     private $dom;
     private $element;
@@ -14,7 +14,7 @@ class HtmlElementTest extends TestCase
     public function setUp()
     {
         $this->dom = Mockery::mock(\DOMElement::class);
-        $this->element = new HtmlElement($this->dom);
+        $this->element = new Element($this->dom);
     }
 
 

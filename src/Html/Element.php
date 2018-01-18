@@ -1,13 +1,15 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\Dom\Html;
+
+use duncan3dc\Dom\ElementTrait;
 
 /**
  * Represents an html element.
  */
-class HtmlElement extends HtmlBase
+class Element extends AbstractBase
 {
-    use Element;
+    use ElementTrait;
 
     /**
      * Check if this element has the specified class applied to it.

@@ -5,7 +5,7 @@ namespace duncan3dc\Dom;
 /**
  * Shared methods for the parsers.
  */
-trait Parser
+trait ParserTrait
 {
     /**
      * @var array $errors An array of errors that occurred during parsing.

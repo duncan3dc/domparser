@@ -1,17 +1,17 @@
 <?php
 
-namespace duncan3dc\DomTests;
+namespace duncan3dc\DomTests\Html;
 
-use duncan3dc\Dom\HtmlParser;
+use duncan3dc\Dom\Html\Parser;
 use PHPUnit\Framework\TestCase;
 
-class HtmlParserTest extends TestCase
+class ParserTest extends TestCase
 {
     private $parser;
 
     public function setUp()
     {
-        $this->parser = new HtmlParser(<<<HTML
+        $this->parser = new Parser(<<<HTML
 <html>
     <head>
         <title data-stuff='ok'>Test Title</title>
@@ -110,7 +110,7 @@ HTML
 
     public function testOutput()
     {
-        $parser = new HtmlParser("<h1>Test</h1>");
+        $parser = new Parser("<h1>Test</h1>");
         $output = $parser->output();
         $lines = explode("\n", $output);
         $this->assertSame("<html><body><h1>Test</h1></body></html>", $lines[1]);

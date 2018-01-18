@@ -1,17 +1,18 @@
 <?php
 
-namespace duncan3dc\DomTests;
+namespace duncan3dc\DomTests\Xml;
 
-use duncan3dc\Dom\XmlParser;
+use duncan3dc\Dom\Xml\Element;
+use duncan3dc\Dom\Xml\Parser;
 use PHPUnit\Framework\TestCase;
 
-class XmlParserTest extends TestCase
+class ParserTest extends TestCase
 {
     private $parser;
 
     public function setUp()
     {
-        $this->parser = new XmlParser(<<<XML
+        $this->parser = new Parser(<<<XML
 <document>
     <header>
         <title>Test Title</title>
@@ -87,7 +88,7 @@ XML
 
     public function testChildNodes()
     {
-        $this->assertContainsOnlyInstancesOf("\duncan3dc\Dom\XmlElement", $this->parser->getTag("title")->childNodes);
+        $this->assertContainsOnlyInstancesOf(Element::class, $this->parser->getTag("title")->childNodes);
     }
 
 

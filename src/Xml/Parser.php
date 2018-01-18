@@ -1,13 +1,15 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\Dom\Xml;
+
+use duncan3dc\Dom\ParserTrait;
 
 /**
  * Parse xml.
  */
-class XmlParser extends XmlBase
+class Parser extends AbstractBase
 {
-    use Parser;
+    use ParserTrait;
 
     /**
      * @var string The xml string we are parsing.

@@ -1,11 +1,11 @@
 <?php
 
-namespace duncan3dc\DomTests;
+namespace duncan3dc\DomTests\Xml;
 
-use duncan3dc\Dom\XmlWriter;
+use duncan3dc\Dom\Xml\Writer;
 use PHPUnit\Framework\TestCase;
 
-class XmlWriterTest extends TestCase
+class WriterTest extends TestCase
 {
     private function checkXml($xml, $check)
     {
@@ -14,7 +14,7 @@ class XmlWriterTest extends TestCase
 
     public function testCreateXmlSimple()
     {
-        $xml = XmlWriter::createXml([
+        $xml = Writer::createXml([
             "simple" => "ok",
         ]);
 
@@ -27,7 +27,7 @@ XML
 
     public function testCreateXmlNested()
     {
-        $xml = XmlWriter::createXml([
+        $xml = Writer::createXml([
             "nested1" => [
                 "nested2"   =>  [
                     "nested3"   =>  "ok",
@@ -44,7 +44,7 @@ XML
 
     public function testCreateXmlMultipleNames()
     {
-        $xml = XmlWriter::createXml([
+        $xml = Writer::createXml([
             "samename_1" => "ok",
             "samename_2" => "ok",
             "samename_3" => "ok",
@@ -61,7 +61,7 @@ XML
 
     public function testCreateXmlAttributes()
     {
-        $xml = XmlWriter::createXml([
+        $xml = Writer::createXml([
             "attributes" => [
                 "_attributes"   =>  [
                     "one"   =>  1,
@@ -79,7 +79,7 @@ XML
 
     public function testCreateXmlValue()
     {
-        $xml = XmlWriter::createXml([
+        $xml = Writer::createXml([
             "attributes" => [
                 "_attributes"   =>  [
                     "one"   =>  1,
@@ -98,7 +98,7 @@ XML
 
     public function testCreateXml1()
     {
-        $xml = XmlWriter::createXml([
+        $xml = Writer::createXml([
             "tag_1" =>  [
                 "tag1a" =>  "ok",
                 "tag1b" =>  "ok",
@@ -123,14 +123,14 @@ XML
 
     public function testGetDomDocument()
     {
-        $xml = new XmlWriter([]);
+        $xml = new Writer([]);
         $this->assertInstanceOf("DOMDocument", $xml->getDomDocument());
     }
 
 
     public function testFormat()
     {
-        $xml = XmlWriter::formatXml([
+        $xml = Writer::formatXml([
             "parent" =>  [
                 "child1"    =>  "ok",
                 "child2"    =>  "ok",
@@ -149,13 +149,13 @@ XML
 
     public function testOverrideEncoding1()
     {
-        $xml = new XmlWriter([], "iso-8859-1");
+        $xml = new Writer([], "iso-8859-1");
 
         $this->assertSame("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n", $xml->toString());
     }
     public function testOverrideEncoding2()
     {
-        $xml = XmlWriter::createXml([], "iso-8859-1");
+        $xml = Writer::createXml([], "iso-8859-1");
 
         $this->assertSame("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>", $xml);
     }

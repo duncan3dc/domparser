@@ -1,11 +1,11 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\Dom\Xml;
 
 /**
  * Generate xml from arrays.
  */
-class XmlWriter
+class Writer
 {
     /**
      * @var \DOMDocument $dom The internal dom instance.

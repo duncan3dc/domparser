@@ -1,8 +1,8 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\Dom\Xml;
 
-class XmlBase extends Base
+class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
     public function __construct($dom)
     {
@@ -12,7 +12,7 @@ class XmlBase extends Base
 
     protected function newElement($element)
     {
-        return new XmlElement($element);
+        return new Element($element);
     }
 
 
