@@ -7,9 +7,13 @@ abstract class AbstractBase
     /** @var \DOMDocument|\DOMElement */
     protected $dom;
 
-    abstract protected function newElement($element);
 
-    public function __construct($dom)
+    /**
+     * Create a new instance.
+     *
+     * @param \DOMNode $dom The element to wrap
+     */
+    public function __construct(\DOMNode $dom)
     {
         $this->dom = $dom;
     }
@@ -26,6 +30,16 @@ abstract class AbstractBase
     }
 
 
+    abstract protected function newElement(\DOMNode $element);
+
+
+    /**
+     * Get elements from anywhere underneath this element.
+     *
+     * @param string $name The name of the elements to look for
+     *
+     * @return ElementInterface[]
+     */
     public function getTags(string $name): array
     {
         $elements = [];
@@ -39,12 +53,26 @@ abstract class AbstractBase
     }
 
 
+    /**
+     * Get elements from anywhere underneath this element.
+     *
+     * @param string $name The name of the elements to look for
+     *
+     * @return ElementInterface[]
+     */
     public function getElementsByTagName(string $name): array
     {
         return $this->getTags($name);
     }
 
 
+    /**
+     * Get an element from anywhere underneath this element.
+     *
+     * @param string $name The name of the element to look for
+     *
+     * @return ElementInterface|null
+     */
     public function getTag(string $name, int $key = 0): ?ElementInterface
     {
         $elements = $this->dom->getElementsByTagName($name);
@@ -57,6 +85,13 @@ abstract class AbstractBase
     }
 
 
+    /**
+     * Get an element from anywhere underneath this element.
+     *
+     * @param string $name The name of the element to look for
+     *
+     * @return ElementInterface|null
+     */
     public function getElementByTagName(string $name, int $key = 0): ?ElementInterface
     {
         return $this->getTag($name, $key);

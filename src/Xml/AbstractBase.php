@@ -6,12 +6,22 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
 
 
-    protected function newElement($element): ElementInterface
+    /**
+     * Create a new element.
+     *
+     * @param \DOMNode $element The element to wrap.
+     *
+     * @return ElementInterface
+     */
+    protected function newElement(\DOMNode $element): ElementInterface
     {
         return new Element($element);
     }
 
 
+    /**
+     * @inheritDoc
+     */
     public function getTagsNS(string $ns, string $name): array
     {
         $elements = [];
@@ -25,12 +35,18 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
+    /**
+     * @inheritDoc
+     */
     public function getElementsByTagNameNS(string $ns, string $name): array
     {
         return $this->getTagsNS($ns, $name);
     }
 
 
+    /**
+     * @inheritDoc
+     */
     public function getTagNS(string $ns, string $name, int $key = 0): ?ElementInterface
     {
         $elements = $this->dom->getElementsByTagNameNS($ns, $name);
@@ -43,6 +59,9 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
+    /**
+     * @inheritDoc
+     */
     public function getElementByTagNameNS(string $ns, string $name, int $key = 0): ?ElementInterface
     {
         return $this->getTagNS($ns, $name, $key);
