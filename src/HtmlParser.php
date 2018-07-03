@@ -18,7 +18,7 @@ class HtmlParser extends HtmlBase
     /**
      * Create a new parser.
      *
-     * @param string Can either be a url with an html response or string containing html
+     * @param string $param Can either be a url with an html response or string containing html
      */
     public function __construct($param)
     {

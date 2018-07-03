@@ -66,7 +66,7 @@ class XmlWriter
      * @param mixed $params The value to set the new element to, or the elements to append to it
      * @param mixed $parent The dom instance to append the element to
      *
-     * @return DomElement
+     * @return \DOMElement
      */
     public function addElement($name, $params, $parent)
     {

@@ -2,6 +2,9 @@
 
 namespace duncan3dc\DomParser;
 
+/**
+ * @property array $childNodes
+ */
 class HtmlBase extends Base
 {
     public function __construct($dom)
@@ -115,6 +118,7 @@ class HtmlBase extends Base
                 }
 
                 $found = false;
+                $value = "";
                 foreach ($options as $tag) {
                     if ($tag->hasAttribute("selected")) {
                         $found = true;

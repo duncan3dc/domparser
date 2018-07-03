@@ -2,6 +2,11 @@
 
 namespace duncan3dc\DomParser;
 
+/**
+ * @property array $childNodes
+ * @property string $nodeValue
+ * @property self $parentNode
+ */
 trait Element
 {
     public function __toString()

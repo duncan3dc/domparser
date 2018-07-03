@@ -18,7 +18,7 @@ class XmlParser extends XmlBase
     /**
      * Create a new parser.
      *
-     * @param string Can either be a url with an xml response or string containing xml
+     * @param string $param Can either be a url with an xml response or string containing xml
      */
     public function __construct($param)
     {
