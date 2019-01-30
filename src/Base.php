@@ -65,19 +65,4 @@ abstract class Base
 
         return $doc->$method($this->dom);
     }
-
-
-    public function xpath($path)
-    {
-        $xpath = new \DOMXPath($this->dom);
-
-        $list = $xpath->query($path);
-
-        $return = [];
-        foreach ($list as $node) {
-            $return[] = $this->newElement($node);
-        }
-
-        return $return;
-    }
 }

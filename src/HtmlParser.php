@@ -28,4 +28,14 @@ class HtmlParser extends HtmlBase
 
         $this->html = $this->getData($param);
     }
+
+
+    public function getElementById($id)
+    {
+        if (!$element = $this->dom->getElementById($id)) {
+            return false;
+        }
+
+        return $this->newElement($element);
+    }
 }

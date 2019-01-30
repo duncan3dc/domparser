@@ -19,16 +19,6 @@ class HtmlBase extends Base
     }
 
 
-    public function getElementById($id)
-    {
-        if (!$element = $this->dom->getElementById($id)) {
-            return false;
-        }
-
-        return $this->newElement($element);
-    }
-
-
     public function getElementsByClassName($className, $limit = 0)
     {
         if (!is_array($className)) {
