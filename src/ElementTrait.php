@@ -2,6 +2,8 @@
 
 namespace duncan3dc\Dom;
 
+use function assert;
+
 /**
  * @property array $childNodes
  * @property string $nodeValue
@@ -36,6 +38,8 @@ trait ElementTrait
     public function getParent(): ElementInterface
     {
         $value = $this->dom->parentNode;
+
+        assert($value instanceof \DOMDocument || $value instanceof \DOMElement);
 
         return $this->newElement($value);
     }

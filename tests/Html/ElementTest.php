@@ -3,12 +3,17 @@
 namespace duncan3dc\DomTests\Html;
 
 use duncan3dc\Dom\Html\Element;
+use duncan3dc\Dom\Html\ElementInterface;
 use Mockery;
+use Mockery\MockInterface;
 use PHPUnit\Framework\TestCase;
 
 class ElementTest extends TestCase
 {
+    /** @var \DOMElement&MockInterface */
     private $dom;
+
+    /** @var ElementInterface */
     private $element;
 
     public function setUp(): void

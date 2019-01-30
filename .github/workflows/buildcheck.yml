@@ -32,7 +32,9 @@ jobs:
         run: docker exec ci vendor/bin/phpunit
 
       - name: Static Analysis
-        run: docker exec ci vendor/bin/phpstan analyse --level=max src tests
+        run: |
+          docker exec ci vendor/bin/phpstan analyse --level=max src
+          docker exec ci vendor/bin/phpstan analyse --level=max --configuration=phpstan-tests.neon tests
 
       - name: Coding Standards
         run: docker exec ci vendor/bin/phpcs src tests

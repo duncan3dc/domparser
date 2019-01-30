@@ -2,6 +2,8 @@
 
 namespace duncan3dc\Dom;
 
+use function assert;
+
 abstract class AbstractBase
 {
     /** @var \DOMDocument|\DOMElement */
@@ -11,7 +13,7 @@ abstract class AbstractBase
     /**
      * Create a new instance.
      *
-     * @param \DOMNode $dom The element to wrap
+     * @param \DOMDocument|\DOMElement $dom The element to wrap
      */
     public function __construct(\DOMNode $dom)
     {

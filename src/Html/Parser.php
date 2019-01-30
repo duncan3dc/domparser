@@ -30,9 +30,10 @@ class Parser extends AbstractBase implements ParserInterface
      */
     public function __construct(string $html)
     {
-        parent::__construct(new \DOMDocument());
+        $dom = new \DOMDocument();
+        $dom->preserveWhiteSpace = false;
 
-        $this->dom->preserveWhiteSpace = false;
+        parent::__construct($dom);
 
         libxml_use_internal_errors(true);
         $this->dom->loadHTML($html);

@@ -2,6 +2,8 @@
 
 namespace duncan3dc\Dom\Xml;
 
+use function assert;
+
 class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
 
@@ -9,7 +11,7 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
     /**
      * Create a new element.
      *
-     * @param \DOMNode $element The element to wrap.
+     * @param \DOMDocument|\DOMElement $element The element to wrap.
      *
      * @return ElementInterface
      */
@@ -54,6 +56,8 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
         if (!$element = $elements->item($key)) {
             return null;
         }
+
+        assert($element instanceof \DOMElement);
 
         return $this->newElement($element);
     }

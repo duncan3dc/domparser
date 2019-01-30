@@ -71,6 +71,7 @@ class Writer
     public function addElement($name, $params, $parent)
     {
         $name = preg_replace("/_[0-9]+$/", "", $name);
+        assert(is_string($name));
 
         $element = $this->dom->createElement($name);
 

@@ -154,6 +154,6 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
 
         $doc->formatOutput = true;
 
-        return $doc->saveHTML($this->dom);
+        return (string) $doc->saveHTML($this->dom);
     }
 }
