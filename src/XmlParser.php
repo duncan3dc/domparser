@@ -22,7 +22,7 @@ class XmlParser extends XmlBase
      */
     public function __construct($param)
     {
-        parent::__construct(new \DOMDocument);
+        parent::__construct(new \DOMDocument());
 
         $this->dom->preserveWhiteSpace = false;
 
