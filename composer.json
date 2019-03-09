@@ -28,5 +28,14 @@
     },
     "autoload-dev": {
         "psr-4": {"duncan3dc\\DomParserTests\\": "tests/"}
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit",
+            "vendor/bin/composer-require-checker",
+            "vendor/bin/phpstan analyse --level=max src tests",
+            "vendor/bin/phpcs --standard=phpcs.xml src tests",
+            "@composer validate"
+        ]
     }
 }
