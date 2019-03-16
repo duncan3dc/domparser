@@ -1,8 +1,8 @@
 <?php
 
-namespace duncan3dc\DomParserTests;
+namespace duncan3dc\DomTests;
 
-use duncan3dc\DomParser\HtmlParser;
+use duncan3dc\Dom\HtmlParser;
 use PHPUnit\Framework\TestCase;
 
 class HtmlParserTest extends TestCase

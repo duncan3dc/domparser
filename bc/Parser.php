@@ -1,6 +1,6 @@
 <?php
 
-namespace duncan3dc\Dom;
+namespace duncan3dc\DomParser;
 
 /**
  * Shared methods for the parsers.

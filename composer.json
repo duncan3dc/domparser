@@ -24,10 +24,10 @@
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
-        "psr-4": {"duncan3dc\\DomParser\\": "src/"}
+        "psr-4": {"duncan3dc\\Dom\\": "src/", "duncan3dc\\DomParser\\": "bc/"}
     },
     "autoload-dev": {
-        "psr-4": {"duncan3dc\\DomParserTests\\": "tests/"}
+        "psr-4": {"duncan3dc\\DomTests\\": "tests/"}
     },
     "scripts": {
         "test": [

@@ -1,8 +1,8 @@
 <?php
 
-namespace duncan3dc\DomParserTests;
+namespace duncan3dc\DomTests;
 
-use duncan3dc\DomParser\XmlWriter;
+use duncan3dc\Dom\XmlWriter;
 use PHPUnit\Framework\TestCase;
 
 class XmlWriterTest extends TestCase

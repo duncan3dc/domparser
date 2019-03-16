@@ -1,8 +1,8 @@
 <?php
 
-namespace duncan3dc\DomParserTests;
+namespace duncan3dc\DomTests;
 
-use duncan3dc\DomParser\HtmlElement;
+use duncan3dc\Dom\HtmlElement;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
