@@ -7,14 +7,11 @@ abstract class AbstractBase
     /** @var \DOMDocument|\DOMElement */
     protected $dom;
 
-    public $mode;
-
     abstract protected function newElement($element);
 
-    public function __construct($dom, $mode)
+    public function __construct($dom)
     {
         $this->dom = $dom;
-        $this->mode = $mode;
     }
 
 

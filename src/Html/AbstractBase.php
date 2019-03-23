@@ -7,10 +7,6 @@ namespace duncan3dc\Dom\Html;
  */
 abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
-    public function __construct($dom)
-    {
-        parent::__construct($dom, "html");
-    }
 
 
     protected function newElement($element)

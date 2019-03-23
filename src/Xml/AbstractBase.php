@@ -4,10 +4,6 @@ namespace duncan3dc\Dom\Xml;
 
 class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
-    public function __construct($dom)
-    {
-        parent::__construct($dom, "xml");
-    }
 
 
     protected function newElement($element)
