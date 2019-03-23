@@ -43,7 +43,7 @@ class ElementTest extends TestCase
     public function testRemoveChild1(): void
     {
         $element = clone $this->element;
-        $this->dom->shouldReceive("removeChild")->with($element->dom);
+        $this->dom->shouldReceive("removeChild")->with($this->dom);
 
         $result = $this->element->removeChild($element);
         $this->assertSame($this->element, $result);

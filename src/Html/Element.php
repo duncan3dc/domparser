@@ -11,6 +11,10 @@ class Element extends AbstractBase
 {
     use ElementTrait;
 
+    /** @var \DOMElement */
+    protected $dom;
+
+
     /**
      * Check if this element has the specified class applied to it.
      *

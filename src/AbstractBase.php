@@ -4,7 +4,9 @@ namespace duncan3dc\Dom;
 
 abstract class AbstractBase
 {
-    public $dom;
+    /** @var \DOMDocument|\DOMElement */
+    protected $dom;
+
     public $mode;
 
     abstract protected function newElement($element);
@@ -13,6 +15,17 @@ abstract class AbstractBase
     {
         $this->dom = $dom;
         $this->mode = $mode;
+    }
+
+
+    /**
+     * Get the internal instance we are wrapping.
+     *
+     * @return \DOMNode
+     */
+    public function getDomNode(): \DOMNode
+    {
+        return $this->dom;
     }
 
 

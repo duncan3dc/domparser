@@ -10,4 +10,7 @@ use duncan3dc\Dom\ElementTrait;
 class Element extends AbstractBase
 {
     use ElementTrait;
+
+    /** @var \DOMElement */
+    protected $dom;
 }

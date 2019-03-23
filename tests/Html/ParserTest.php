@@ -60,6 +60,16 @@ HTML
     }
 
 
+    /**
+     * Ensure we can extract the internal dom node we are wrapping.
+     */
+    public function testGetDomNode1(): void
+    {
+        $result = $this->parser->getDomNode();
+        $this->assertInstanceOf(\DOMNode::class, $result);
+    }
+
+
     public function testGetTags1(): void
     {
         $this->assertSame(3, count($this->parser->getTags("div")));

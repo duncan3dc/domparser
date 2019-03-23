@@ -11,6 +11,9 @@ class Parser extends AbstractBase
 {
     use ParserTrait;
 
+    /** @var \DOMDocument */
+    protected $dom;
+
     /**
      * @var string The xml string we are parsing.
      */
