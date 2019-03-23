@@ -143,11 +143,23 @@ HTML
     }
 
 
-    public function testOutput(): void
+    /**
+     * Ensure we can convert a single tag to a string.
+     */
+    public function testToString1(): void
+    {
+        $this->assertSame('<div class="data1 three" id="data1.3">Data1.3</div>', $this->parser->getElementById("data1.3")->toString());
+    }
+
+
+    /**
+     * Ensure we can convert an entire document to a string.
+     */
+    public function testToString2(): void
     {
         $parser = new Parser("<h1>Test</h1>");
-        $output = $parser->output();
-        $lines = explode("\n", $output);
+        $html = $parser->toString();
+        $lines = explode("\n", $html);
         $this->assertSame("<html><body><h1>Test</h1></body></html>", $lines[1]);
     }
 
@@ -178,5 +190,14 @@ HTML
             "option2"   =>  "value2",
             "comments"  =>  "blah blah blah",
         ], $data);
+    }
+
+
+    /**
+     * Ensure we can convert an element object to a string
+     */
+    public function testCastToString1(): void
+    {
+        $this->assertSame("Test Title", (string) $this->parser->getTag("title"));
     }
 }

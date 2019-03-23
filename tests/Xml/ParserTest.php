@@ -133,9 +133,22 @@ XML
     }
 
 
-    public function testOutput(): void
+    /**
+     * Ensure we can convert a single tag to a string.
+     */
+    public function testToString1(): void
     {
-        $this->assertSame("<child>Child1</child>", $this->parser->getTag("child")->output());
+        $this->assertSame("<child>Child1</child>", $this->parser->getTag("child")->toString());
+    }
+
+
+    /**
+     * Ensure we can convert an entire document to a string.
+     */
+    public function testToString2(): void
+    {
+        $parser = new Parser("<parent><child>One</child></parent>");
+        $this->assertSame('<?xml version="1.0" encoding="UTF-8"?>' . "\n<parent>\n  <child>One</child>\n</parent>\n", $parser->toString());
     }
 
 
@@ -171,7 +184,10 @@ XML
     }
 
 
-    public function testToString(): void
+    /**
+     * Ensure we can convert an element object to a string
+     */
+    public function testCastToString1(): void
     {
         $this->assertSame("Test Title", (string) $this->parser->getTag("title"));
     }

@@ -51,4 +51,23 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
     {
         return $this->getTagNS($ns, $tagName, $key);
     }
+
+
+    /**
+     * Serialize this element using pretty formatting.
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        if ($this->dom instanceof \DOMDocument) {
+            $doc = $this->dom;
+        } else {
+            $doc = $this->dom->ownerDocument;
+        }
+
+        $doc->formatOutput = true;
+
+        return $doc->saveXML($this->dom);
+    }
 }

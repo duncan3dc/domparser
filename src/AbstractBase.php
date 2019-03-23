@@ -64,18 +64,4 @@ abstract class AbstractBase
     {
         return $this->getTag($tagName, $key);
     }
-
-
-    public function output()
-    {
-        if (!$doc = $this->dom->ownerDocument) {
-            $doc = $this->dom;
-        }
-
-        $doc->formatOutput = true;
-
-        $method = "save" . strtoupper($this->mode);
-
-        return $doc->$method($this->dom);
-    }
 }
