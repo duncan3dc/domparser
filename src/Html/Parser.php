@@ -2,36 +2,51 @@
 
 namespace duncan3dc\Dom\Html;
 
+use duncan3dc\Dom\ParserInterface;
 use duncan3dc\Dom\ParserTrait;
+
+use function libxml_clear_errors;
+use function libxml_get_errors;
+use function libxml_use_internal_errors;
 
 /**
  * Parse html.
  */
-class Parser extends AbstractBase
+class Parser extends AbstractBase implements ParserInterface
 {
     use ParserTrait;
 
     /** @var \DOMDocument */
     protected $dom;
 
-    /**
-     * @var string The html string we are parsing.
-     */
-    public $html;
+    /** @var \LibXMLError[] */
+    private $errors = [];
 
 
     /**
      * Create a new parser.
      *
-     * @param string $param Can either be a url with an html response or string containing html
+     * @param string $html
      */
-    public function __construct($param)
+    public function __construct(string $html)
     {
         parent::__construct(new \DOMDocument());
 
         $this->dom->preserveWhiteSpace = false;
 
-        $this->html = $this->getData($param);
+        libxml_use_internal_errors(true);
+        $this->dom->loadHTML($html);
+        $this->errors = libxml_get_errors();
+        libxml_clear_errors();
+    }
+
+
+    /**
+     * @inheritdoc
+     */
+    public function getErrors(): array
+    {
+        return $this->errors;
     }
 
 

@@ -8,33 +8,6 @@ namespace duncan3dc\Dom;
 trait ParserTrait
 {
     /**
-     * @var array $errors An array of errors that occurred during parsing.
-     */
-    public $errors = [];
-
-    /**
-     * Get the content for parsing.
-     *
-     * Creates an internal dom instance.
-     *
-     * @param string $data The xml/html
-     *
-     * @return string The xml/html
-     */
-    protected function getData($data)
-    {
-        $method = "load" . strtoupper($this->mode);
-
-        libxml_use_internal_errors(true);
-        $this->dom->$method($data);
-        $this->errors = libxml_get_errors();
-        libxml_clear_errors();
-
-        return $data;
-    }
-
-
-    /**
      * Get elements using an xpath selector.
      *
      * @param string $path The xpath selector

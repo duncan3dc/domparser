@@ -5,6 +5,8 @@ namespace duncan3dc\DomTests\Html;
 use duncan3dc\Dom\Html\Parser;
 use PHPUnit\Framework\TestCase;
 
+use function trim;
+
 class ParserTest extends TestCase
 {
     private $parser;
@@ -24,9 +26,9 @@ class ParserTest extends TestCase
             <input name='test' value='ok'>
 
             <input name='bag[]' value='one'>
-            <formset>
+            <fieldset>
                 <input name='bag[]' value='two'>
-            </formset>
+            </fieldset>
             <input name='data[item][level]' value='nested'>
 
             <input name='filtered' type='checkbox' value='yep' checked>
@@ -47,6 +49,29 @@ class ParserTest extends TestCase
 </html>
 HTML
         );
+    }
+
+
+    /**
+     * Ensure there are no errors with conforming HTML.
+     */
+    public function testGetErrors1(): void
+    {
+        $this->assertSame([], $this->parser->getErrors());
+    }
+
+
+    /**
+     * Ensure we can retrieve the details of an invalid tag.
+     */
+    public function testGetErrors2(): void
+    {
+        $parser = new Parser("<nope>No</nope>");
+        $errors = [];
+        foreach ($parser->getErrors() as $error) {
+            $errors[] = trim($error->message);
+        }
+        $this->assertSame(["Tag nope invalid"], $errors);
     }
 
 

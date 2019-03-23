@@ -6,6 +6,8 @@ use duncan3dc\Dom\Xml\Element;
 use duncan3dc\Dom\Xml\Parser;
 use PHPUnit\Framework\TestCase;
 
+use function trim;
+
 class ParserTest extends TestCase
 {
     private $parser;
@@ -33,6 +35,29 @@ class ParserTest extends TestCase
 </document>
 XML
         );
+    }
+
+
+    /**
+     * Ensure there are no errors with conforming XML.
+     */
+    public function testGetErrors1(): void
+    {
+        $this->assertSame([], $this->parser->getErrors());
+    }
+
+
+    /**
+     * Ensure we can retrieve the details of an invalid tag.
+     */
+    public function testGetErrors2(): void
+    {
+        $parser = new Parser("<yep></nope>");
+        $errors = [];
+        foreach ($parser->getErrors() as $error) {
+            $errors[] = trim($error->message);
+        }
+        $this->assertSame(["Opening and ending tag mismatch: yep line 1 and nope"], $errors);
     }
 
 
