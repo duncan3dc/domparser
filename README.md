@@ -66,3 +66,10 @@ foreach($meta as $element) {
 }
 echo "Content Type: " . (($contentType) ?: "NOT FOUND") . "\n";
 ```
+
+
+## duncan3dc/domparser for enterprise
+
+Available as part of the Tidelift Subscription
+
+The maintainers of duncan3dc/domparser and thousands of other packages are working with Tidelift to deliver commercial support and maintenance for the open source dependencies you use to build your applications. Save time, reduce risk, and improve code health, while paying the maintainers of the exact dependencies you use. [Learn more.](https://tidelift.com/subscription/pkg/packagist-duncan3dc-domparser?utm_source=packagist-duncan3dc-domparser&utm_medium=referral&utm_campaign=readme)
