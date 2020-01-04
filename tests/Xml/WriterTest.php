@@ -7,12 +7,12 @@ use PHPUnit\Framework\TestCase;
 
 class WriterTest extends TestCase
 {
-    private function checkXml($xml, $check)
+    private function checkXml(string $xml, string $check): void
     {
         $this->assertSame("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" . $check, $xml);
     }
 
-    public function testCreateXmlSimple()
+    public function testCreateXmlSimple(): void
     {
         $xml = Writer::createXml([
             "simple" => "ok",
@@ -25,7 +25,7 @@ XML
     }
 
 
-    public function testCreateXmlNested()
+    public function testCreateXmlNested(): void
     {
         $xml = Writer::createXml([
             "nested1" => [
@@ -42,7 +42,7 @@ XML
     }
 
 
-    public function testCreateXmlMultipleNames()
+    public function testCreateXmlMultipleNames(): void
     {
         $xml = Writer::createXml([
             "samename_1" => "ok",
@@ -59,7 +59,7 @@ XML
     }
 
 
-    public function testCreateXmlAttributes()
+    public function testCreateXmlAttributes(): void
     {
         $xml = Writer::createXml([
             "attributes" => [
@@ -77,7 +77,7 @@ XML
     }
 
 
-    public function testCreateXmlValue()
+    public function testCreateXmlValue(): void
     {
         $xml = Writer::createXml([
             "attributes" => [
@@ -96,7 +96,7 @@ XML
     }
 
 
-    public function testCreateXml1()
+    public function testCreateXml1(): void
     {
         $xml = Writer::createXml([
             "tag_1" =>  [
@@ -121,14 +121,14 @@ XML
     }
 
 
-    public function testGetDomDocument()
+    public function testGetDomDocument(): void
     {
         $xml = new Writer([]);
         $this->assertInstanceOf("DOMDocument", $xml->getDomDocument());
     }
 
 
-    public function testFormat()
+    public function testFormat(): void
     {
         $xml = Writer::formatXml([
             "parent" =>  [
@@ -147,13 +147,13 @@ XML
     }
 
 
-    public function testOverrideEncoding1()
+    public function testOverrideEncoding1(): void
     {
         $xml = new Writer([], "iso-8859-1");
 
         $this->assertSame("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n", $xml->toString());
     }
-    public function testOverrideEncoding2()
+    public function testOverrideEncoding2(): void
     {
         $xml = Writer::createXml([], "iso-8859-1");
 

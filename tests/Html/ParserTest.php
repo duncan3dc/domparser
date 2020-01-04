@@ -9,7 +9,7 @@ class ParserTest extends TestCase
 {
     private $parser;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->parser = new Parser(<<<HTML
 <html>
@@ -50,65 +50,65 @@ HTML
     }
 
 
-    public function testGetElementById1()
+    public function testGetElementById1(): void
     {
         $this->assertSame("Data1.3", $this->parser->getElementById("data1.3")->nodeValue);
     }
-    public function testGetElementById2()
+    public function testGetElementById2(): void
     {
         $this->assertFalse($this->parser->getElementById("data1.4"));
     }
 
 
-    public function testGetTags1()
+    public function testGetTags1(): void
     {
         $this->assertSame(3, count($this->parser->getTags("div")));
     }
-    public function testGetTags2()
+    public function testGetTags2(): void
     {
         $this->assertSame(3, count($this->parser->getElementsByTagName("div")));
     }
 
 
-    public function testGetTag1()
+    public function testGetTag1(): void
     {
         $this->assertSame("Data1.2", $this->parser->getTag("div", 1)->nodeValue);
     }
-    public function testGetTag2()
+    public function testGetTag2(): void
     {
         $this->assertSame("Test Title", $this->parser->getElementByTagName("title")->nodeValue);
     }
-    public function testGetTag3()
+    public function testGetTag3(): void
     {
         $this->assertFalse($this->parser->getElementByTagName("no-such-tag"));
     }
 
 
-    public function testGetElementsByClassName1()
+    public function testGetElementsByClassName1(): void
     {
         $this->assertSame(3, count($this->parser->getElementsByClassName("data1")));
     }
 
 
-    public function testGetElementsByClassName2()
+    public function testGetElementsByClassName2(): void
     {
         $this->assertSame(1, count($this->parser->getElementsByClassName(["data1", "two"])));
     }
 
 
-    public function testGetElementByClassName1()
+    public function testGetElementByClassName1(): void
     {
         $this->assertSame("Data1.1", $this->parser->getElementByClassName(["data1", "one"])->nodeValue);
     }
 
 
-    public function testParentNode()
+    public function testParentNode(): void
     {
         $this->assertSame("body", $this->parser->getTag("div")->parentNode->nodeName);
     }
 
 
-    public function testOutput()
+    public function testOutput(): void
     {
         $parser = new Parser("<h1>Test</h1>");
         $output = $parser->output();
@@ -117,21 +117,21 @@ HTML
     }
 
 
-    public function testXpath1()
+    public function testXpath1(): void
     {
         $this->assertSame("Test Title", $this->parser->xpath("/html/head/title")[0]->nodeValue);
     }
-    public function testXpath2()
+    public function testXpath2(): void
     {
         $this->assertSame([], $this->parser->xpath("/title"));
     }
-    public function testXpath3()
+    public function testXpath3(): void
     {
         $this->assertSame("Test Title", $this->parser->xpath("//title")[0]->nodeValue);
     }
 
 
-    public function testParseForm()
+    public function testParseForm(): void
     {
         $data = $this->parser->getElementById("form1")->parseForm();
         $this->assertSame([
