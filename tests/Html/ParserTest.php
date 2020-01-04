@@ -46,7 +46,7 @@ class ParserTest extends TestCase
     </body>
 </html>
 HTML
-);
+        );
     }
 
 

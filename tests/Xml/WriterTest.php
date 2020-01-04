@@ -21,7 +21,7 @@ class WriterTest extends TestCase
         $this->checkXml($xml, <<<XML
 <simple>ok</simple>
 XML
-);
+        );
     }
 
 
@@ -38,7 +38,7 @@ XML
         $this->checkXml($xml, <<<XML
 <nested1><nested2><nested3>ok</nested3></nested2></nested1>
 XML
-);
+        );
     }
 
 
@@ -55,7 +55,7 @@ XML
 <samename>ok</samename>
 <samename>ok</samename>
 XML
-);
+        );
     }
 
 
@@ -73,7 +73,7 @@ XML
         $this->checkXml($xml, <<<XML
 <attributes one="1" two="2"/>
 XML
-);
+        );
     }
 
 
@@ -92,7 +92,7 @@ XML
         $this->checkXml($xml, <<<XML
 <attributes one="1" two="2">MY_VALUE</attributes>
 XML
-);
+        );
     }
 
 
@@ -117,7 +117,7 @@ XML
 <tag><tag1a>ok</tag1a><tag1b>ok</tag1b></tag>
 <tag attr="ok" test="one"><tag2a>ok</tag2a><tag2b>ok</tag2b></tag>
 XML
-);
+        );
     }
 
 
@@ -143,7 +143,7 @@ XML
   <child2>ok</child2>
 </parent>
 XML
-);
+        );
     }
 
 

@@ -32,7 +32,7 @@ class ParserTest extends TestCase
     </extra:detail>
 </document>
 XML
-);
+        );
     }
 
 
