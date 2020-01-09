@@ -4,7 +4,7 @@ domparser
 Wrappers for the PHP DOMDocument class to provide extra functionality for html/xml parsing
 
 [![release](https://poser.pugx.org/duncan3dc/domparser/version.svg)](https://packagist.org/packages/duncan3dc/domparser)
-[![build](https://travis-ci.org/duncan3dc/domparser.svg?branch=master)](https://travis-ci.org/duncan3dc/domparser)
+[![build](https://github.com/duncan3dc/domparser/workflows/.github/workflows/buildcheck.yml/badge.svg?branch=master)](https://github.com/duncan3dc/domparser/actions?query=branch%3Amaster+workflow%3A.github%2Fworkflows%2Fbuildcheck.yml)
 [![coverage](https://codecov.io/gh/duncan3dc/domparser/graph/badge.svg)](https://codecov.io/gh/duncan3dc/domparser)
 
 
