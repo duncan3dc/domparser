@@ -5,6 +5,14 @@ Changelog
 
 --------
 
+## 2.0.1 - 2020-01-09
+
+### Fixed
+
+* [Interfaces] Added `__toString()` to the `ElementInterface`
+
+--------
+
 ## 2.0.0 - 2020-01-09
 
 ### Added

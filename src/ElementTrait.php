@@ -11,7 +11,7 @@ use function assert;
  */
 trait ElementTrait
 {
-    public function __toString()
+    public function __toString(): string
     {
         return $this->nodeValue;
     }

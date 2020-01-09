@@ -32,4 +32,12 @@ interface ElementInterface extends DomInterface
 
 
     public function removeChild(ElementInterface $element): ElementInterface;
+
+
+    /**
+     * Get the value of this tag (same as getValue())
+     *
+     * @return string
+     */
+    public function __toString(): string;
 }
