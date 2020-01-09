@@ -2,6 +2,9 @@
 
 namespace duncan3dc\DomParser;
 
+/**
+ * @deprecated Use \duncan3dc\Dom\Xml\AbstractBase
+ */
 class XmlBase extends Base
 {
     public function __construct($dom)

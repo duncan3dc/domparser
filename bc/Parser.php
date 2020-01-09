@@ -4,6 +4,7 @@ namespace duncan3dc\DomParser;
 
 /**
  * Shared methods for the parsers.
+ * @deprecated Use \duncan3dc\Dom\ParserTrait
  */
 trait Parser
 {

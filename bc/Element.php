@@ -6,6 +6,7 @@ namespace duncan3dc\DomParser;
  * @property array $childNodes
  * @property string $nodeValue
  * @property self $parentNode
+ * @deprecated Use \duncan3dc\Dom\ElementTrait
  */
 trait Element
 {

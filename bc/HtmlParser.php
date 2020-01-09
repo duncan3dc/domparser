@@ -4,6 +4,7 @@ namespace duncan3dc\DomParser;
 
 /**
  * Parse html.
+ * @deprecated Use \duncan3dc\Dom\Html\Parser
  */
 class HtmlParser extends HtmlBase
 {

@@ -2,6 +2,9 @@
 
 namespace duncan3dc\DomParser;
 
+/**
+ * @deprecated Use \duncan3dc\Dom\AbstractBase
+ */
 abstract class Base
 {
     public $dom;

@@ -44,16 +44,16 @@ All of the methods that return elements return them as instances of the Element 
 Examples
 --------
 
-The parser classes use a namespace of duncan3dc\DomParser
+The parser classes use a namespace of duncan3dc\Dom
 ```php
-use duncan3dc\DomParser\HtmlParser;
-use duncan3dc\DomParser\XmlParser;
+use duncan3dc\Dom\Html\Parser;
+use duncan3dc\Dom\Xml\Parser;
 ```
 
 -------------------
 
 ```php
-$parser = new HtmlParser(file_get_contents("http://example.com"));
+$parser = new Parser(file_get_contents("http://example.com"));
 
 echo "Page Title: " . $parser->getTag("title")->nodeValue . "\n";
 

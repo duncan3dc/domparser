@@ -4,6 +4,7 @@ namespace duncan3dc\DomParser;
 
 /**
  * Generate xml from arrays.
+ * @deprecated Use \duncan3dc\Dom\Xml\Writer
  */
 class XmlWriter
 {

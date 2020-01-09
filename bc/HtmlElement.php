@@ -4,6 +4,7 @@ namespace duncan3dc\DomParser;
 
 /**
  * Represents an html element.
+ * @deprecated Use \duncan3dc\Dom\Html\Element
  */
 class HtmlElement extends HtmlBase
 {

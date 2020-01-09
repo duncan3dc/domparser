@@ -4,6 +4,7 @@ namespace duncan3dc\DomParser;
 
 /**
  * Parse xml.
+ * @deprecated Use \duncan3dc\Dom\Xml\Parser
  */
 class XmlParser extends XmlBase
 {

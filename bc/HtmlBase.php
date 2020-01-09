@@ -4,6 +4,7 @@ namespace duncan3dc\DomParser;
 
 /**
  * @property array $childNodes
+ * @deprecated Use \duncan3dc\Dom\Html\AbstractBase
  */
 class HtmlBase extends Base
 {
