@@ -2,7 +2,6 @@
 
 namespace duncan3dc\Dom\Xml;
 
-use duncan3dc\Dom\ParserInterface;
 use duncan3dc\Dom\ParserTrait;
 
 use function libxml_clear_errors;

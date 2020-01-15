@@ -5,6 +5,15 @@ Changelog
 
 --------
 
+## 2.0.2 - 2020-01-15
+
+### Fixed
+
+* [Interfaces] Html\Parser should implement Html\ParserInterface
+* [Interfaces] Xml\Parser should implement Xml\ParserInterface
+
+--------
+
 ## 2.0.1 - 2020-01-09
 
 ### Fixed
