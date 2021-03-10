@@ -16,7 +16,7 @@ class ElementTest extends TestCase
     /** @var ElementInterface */
     private $element;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->dom = Mockery::mock(\DOMElement::class);
         $this->element = new Element($this->dom);

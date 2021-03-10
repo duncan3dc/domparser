@@ -12,7 +12,7 @@ class ParserTest extends TestCase
 {
     private $parser;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->parser = new Parser(<<<XML
 <document>
