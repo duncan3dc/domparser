@@ -17,6 +17,11 @@ trait ElementTrait
     }
 
 
+    /**
+     * @param string $key
+     *
+     * @return mixed
+     */
     public function __get($key)
     {
         if ($key === "parentNode") {
@@ -45,6 +50,9 @@ trait ElementTrait
     }
 
 
+    /**
+     * @return ElementInterface[]
+     */
     public function getChildren(): array
     {
         $elements = [];
@@ -69,6 +77,7 @@ trait ElementTrait
     {
         $this->dom->nodeValue = "";
 
+        assert($this->dom->ownerDocument instanceof \DOMDocument);
         $node = $this->dom->ownerDocument->createTextNode($value);
 
         $this->dom->appendChild($node);
@@ -97,9 +106,13 @@ trait ElementTrait
     }
 
 
+    /**
+     * @return array<string|int,mixed>
+     */
     public function getAttributes(): array
     {
         $attributes = [];
+        assert($this->dom->attributes instanceof \DOMNamedNodeMap);
         foreach ($this->dom->attributes as $attr) {
             $attributes[$attr->name] = $attr->value;
         }

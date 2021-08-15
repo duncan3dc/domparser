@@ -22,7 +22,7 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
 
 
     /**
-     * @inheritDoc
+     * @return ElementInterface[]
      */
     public function getTagsNS(string $ns, string $name): array
     {
@@ -38,7 +38,7 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
 
 
     /**
-     * @inheritDoc
+     * @return ElementInterface[]
      */
     public function getElementsByTagNameNS(string $ns, string $name): array
     {
@@ -85,8 +85,9 @@ class AbstractBase extends \duncan3dc\Dom\AbstractBase
             $doc = $this->dom->ownerDocument;
         }
 
+        assert($doc instanceof \DOMDocument);
         $doc->formatOutput = true;
 
-        return $doc->saveXML($this->dom);
+        return (string) $doc->saveXML($this->dom);
     }
 }

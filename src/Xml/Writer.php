@@ -16,7 +16,7 @@ class Writer
     /**
      * Create an internal dom instance from the passed array structure.
      *
-     * @param array $structure The array representation of the xml structure
+     * @param array<string,string|array> $structure The array representation of the xml structure
      * @param string $encoding The encoding to declare in the <?xml tag
      */
     public function __construct(array $structure, $encoding = null)
@@ -55,7 +55,7 @@ class Writer
         if ($format) {
             $this->dom->formatOutput = true;
         }
-        return $this->dom->saveXML();
+        return (string) $this->dom->saveXML();
     }
 
 
@@ -115,7 +115,7 @@ class Writer
     /**
      * Convert the passed array structure to an xml string.
      *
-     * @param array $structure The array representation of the xml structure
+     * @param array<string,string|array> $structure The array representation of the xml structure
      * @param string $encoding The encoding to declare in the <?xml tag
      *
      * @return string
@@ -130,7 +130,7 @@ class Writer
     /**
      * Convert the passed array structure to an xml string using pretty formatting.
      *
-     * @param array $structure The array representation of the xml structure
+     * @param array<string,string|array> $structure The array representation of the xml structure
      *
      * @return string
      */

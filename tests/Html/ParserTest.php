@@ -9,6 +9,7 @@ use function trim;
 
 class ParserTest extends TestCase
 {
+    /** @var Parser */
     private $parser;
 
     protected function setUp(): void

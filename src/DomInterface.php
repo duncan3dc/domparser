@@ -4,9 +4,15 @@ namespace duncan3dc\Dom;
 
 interface DomInterface
 {
+    /**
+     * @return ElementInterface[]
+     */
     public function getTags(string $name): array;
 
 
+    /**
+     * @return ElementInterface[]
+     */
     public function getElementsByTagName(string $name): array;
 
 

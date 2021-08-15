@@ -10,6 +10,9 @@ interface ElementInterface extends DomInterface
     public function getParent(): ElementInterface;
 
 
+    /**
+     * @return ElementInterface[]
+     */
     public function getChildren(): array;
 
 
@@ -28,6 +31,9 @@ interface ElementInterface extends DomInterface
     public function setAttribute(string $name, string $value): ElementInterface;
 
 
+    /**
+     * @return array<string|int,mixed>
+     */
     public function getAttributes(): array;
 
 

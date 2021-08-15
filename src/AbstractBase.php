@@ -32,6 +32,9 @@ abstract class AbstractBase
     }
 
 
+    /**
+     * @return ElementInterface
+     */
     abstract protected function newElement(\DOMNode $element);
 
 

@@ -9,12 +9,22 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
 
 
+    /**
+     * @param \DOMDocument|\DOMElement $element The element to wrap
+     *
+     * @return ElementInterface
+     */
     protected function newElement($element)
     {
         return new Element($element);
     }
 
 
+    /**
+     * @param string|array<string> $name
+     *
+     * @return ElementInterface[]
+     */
     public function getElementsByClassName($name, int $limit = 0): array
     {
         if (!is_array($name)) {
@@ -55,6 +65,9 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
+    /**
+     * @param string|array<string> $name
+     */
     public function getElementByClassName($name, int $key = 0): ?ElementInterface
     {
         $elements = $this->getElementsByClassName($name, $key + 1);
@@ -63,6 +76,9 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
     }
 
 
+    /**
+     * @return array<string,string>
+     */
     public function parseForm(): array
     {
         $url = $this->generateUrlFromFormElements();
@@ -152,6 +168,7 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
             $doc = $this->dom->ownerDocument;
         }
 
+        assert($doc instanceof \DOMDocument);
         $doc->formatOutput = true;
 
         return (string) $doc->saveHTML($this->dom);
