@@ -4,6 +4,9 @@ namespace duncan3dc\Dom\Xml;
 
 use duncan3dc\Dom\DomInterface;
 
+/**
+ * @extends DomInterface<ElementInterface>
+ */
 interface XmlInterface extends DomInterface
 {
     /**

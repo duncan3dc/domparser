@@ -4,6 +4,9 @@ namespace duncan3dc\Dom\Html;
 
 use duncan3dc\Dom\DomInterface;
 
+/**
+ * @extends \duncan3dc\Dom\DomInterface<\duncan3dc\Dom\Html\ElementInterface>
+ */
 interface HtmlInterface extends DomInterface
 {
     /**
