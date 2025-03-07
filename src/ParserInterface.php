@@ -2,6 +2,10 @@
 
 namespace duncan3dc\Dom;
 
+/**
+ * @template T of ElementInterface
+ * @extends DomInterface<ElementInterface>
+ */
 interface ParserInterface extends DomInterface
 {
     /**
@@ -17,7 +21,7 @@ interface ParserInterface extends DomInterface
      *
      * @param string $path The xpath selector
      *
-     * @return ElementInterface[]
+     * @return array<T>
      */
     public function xpath(string $path): array;
 }

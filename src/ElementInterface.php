@@ -2,15 +2,22 @@
 
 namespace duncan3dc\Dom;
 
+/**
+ * @template T of ElementInterface
+ * @extends DomInterface<ElementInterface>
+ */
 interface ElementInterface extends DomInterface
 {
     public function getDomNode(): \DOMNode;
 
+    /**
+     * @return <T>
+     */
     public function getParent(): ElementInterface;
 
 
     /**
-     * @return ElementInterface[]
+     * @return array<<T>>
      */
     public function getChildren(): array;
 
@@ -18,6 +25,9 @@ interface ElementInterface extends DomInterface
     public function getValue(): string;
 
 
+    /**
+     * @return <T>
+     */
     public function nodeValue(string $value): ElementInterface;
 
 
@@ -27,6 +37,9 @@ interface ElementInterface extends DomInterface
     public function getAttribute(string $name): string;
 
 
+    /**
+     * @return <T>
+     */
     public function setAttribute(string $name, string $value): ElementInterface;
 
 
@@ -36,6 +49,11 @@ interface ElementInterface extends DomInterface
     public function getAttributes(): array;
 
 
+    /**
+     * @param <T> $element
+     *
+     * @return <T>
+     */
     public function removeChild(ElementInterface $element): ElementInterface;
 
 
