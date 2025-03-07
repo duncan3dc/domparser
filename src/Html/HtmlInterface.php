@@ -6,8 +6,6 @@ use duncan3dc\Dom\DomInterface;
 
 interface HtmlInterface extends DomInterface
 {
-
-
     /**
      * @param string|array<string> $name
      *

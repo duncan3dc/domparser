@@ -4,7 +4,6 @@ namespace duncan3dc\Dom;
 
 interface ElementInterface extends DomInterface
 {
-
     public function getDomNode(): \DOMNode;
 
     public function getParent(): ElementInterface;
