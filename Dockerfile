@@ -10,3 +10,4 @@ RUN if [ "$COVERAGE" = "pcov" ]; then pecl install pcov && docker-php-ext-enable
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
+RUN git config --global --add safe.directory /app
