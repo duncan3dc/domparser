@@ -96,7 +96,6 @@ abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
         $url = "";
 
         foreach ($this->childNodes as $node) {
-
             # Recurse
             if (!in_array($node->nodeName, ["input", "select", "textarea"], true)) {
                 $url .= $node->generateUrlFromFormElements();
