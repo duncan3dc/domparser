@@ -1,4 +1,4 @@
-ARG PHP_VERSION=7.2
+ARG PHP_VERSION=7.3
 FROM php:${PHP_VERSION}-cli
 
 RUN apt update && apt install -y git libzip-dev zip && docker-php-ext-install zip
