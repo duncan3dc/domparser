@@ -30,7 +30,7 @@ class ElementTest extends TestCase
     }
     public function testHasClass2(): void
     {
-        $this->dom->shouldReceive("getAttribute")->with("class")->andReturn(null);
+        $this->dom->shouldReceive("getAttribute")->with("class")->andReturn("");
         $this->assertFalse($this->element->hasClass("test"));
     }
     public function testHasClass3(): void
