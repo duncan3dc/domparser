@@ -4,8 +4,6 @@ namespace duncan3dc\Dom;
 
 interface ParserInterface extends DomInterface
 {
-
-
     /**
      * Get any errors raised when parsing this object's XML/HTML.
      *

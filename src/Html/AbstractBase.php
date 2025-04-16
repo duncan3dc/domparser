@@ -7,8 +7,6 @@ namespace duncan3dc\Dom\Html;
  */
 abstract class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
-
-
     /**
      * @param \DOMDocument|\DOMElement $element The element to wrap
      *

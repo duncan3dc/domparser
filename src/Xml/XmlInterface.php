@@ -6,7 +6,6 @@ use duncan3dc\Dom\DomInterface;
 
 interface XmlInterface extends DomInterface
 {
-
     /**
      * Get elements that are part of a particular namespace.
      *

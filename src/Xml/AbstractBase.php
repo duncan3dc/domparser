@@ -6,8 +6,6 @@ use function assert;
 
 class AbstractBase extends \duncan3dc\Dom\AbstractBase
 {
-
-
     /**
      * Create a new element.
      *
