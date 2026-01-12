@@ -10,9 +10,6 @@ RUN chmod +x /usr/local/sbin/pickle
 ARG COVERAGE
 RUN if [ "$COVERAGE" = "pcov" ]; then pickle install pcov && docker-php-ext-enable pcov; fi
 
-# Install composer to manage PHP dependencies
-RUN curl https://getcomposer.org/download/1.9.1/composer.phar -o /usr/local/sbin/composer
-RUN chmod +x /usr/local/sbin/composer
-RUN composer self-update
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 WORKDIR /app
