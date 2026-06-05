@@ -31,7 +31,7 @@ interface ElementInterface extends DomInterface
 
 
     /**
-     * @return array<string|int,mixed>
+     * @return array<string, string>
      */
     public function getAttributes(): array;
 

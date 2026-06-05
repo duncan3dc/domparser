@@ -107,13 +107,14 @@ trait ElementTrait
 
 
     /**
-     * @return array<string|int,mixed>
+     * @return array<string, string>
      */
     public function getAttributes(): array
     {
         $attributes = [];
         assert($this->dom->attributes instanceof \DOMNamedNodeMap);
         foreach ($this->dom->attributes as $attr) {
+            assert($attr instanceof \DOMAttr);
             $attributes[$attr->name] = $attr->value;
         }
         return $attributes;

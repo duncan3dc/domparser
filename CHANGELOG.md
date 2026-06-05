@@ -5,6 +5,14 @@ Changelog
 
 --------
 
+## 2.2.1 - 2026-06-05
+
+### Fixed
+
+* [HTML/XML] Corrected the return type of getAttributes() to array<string, string>.
+
+--------
+
 ## 2.2.0 - 2026-06-03
 
 ### Changed
